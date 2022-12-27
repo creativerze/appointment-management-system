@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
 
   const navigate = useNavigate();
@@ -27,6 +27,16 @@ const Login = () => {
         setLoginError(error.message);
       });
 
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate('/');
+      })
+      .catch(error => console.error(error));
   };
 
   return (
@@ -70,7 +80,7 @@ const Login = () => {
           </form>
           <p className='mt-2'>New to Here? <Link className='text-primary' to='/signup'>Create a new Account</Link></p>
           <div className="divider">OR</div>
-          <button className='btn btn-outline btn-primary w-full'>CONTINUE WITH GOOGLE</button>
+          <button onClick={handleGoogleSignIn} className='btn btn-outline btn-primary w-full'>CONTINUE WITH GOOGLE</button>
         </div>
       </div>
     </div>
