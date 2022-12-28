@@ -1,8 +1,4 @@
 import userEvent from '@testing-library/user-event';
-// import React, { useContext } from 'react';
-// import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../../../contexts/AuthProvider';
-
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -38,7 +34,7 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">SimplyBook</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-2xl text-primary">SimplyBook</Link>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
