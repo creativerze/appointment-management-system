@@ -1,7 +1,11 @@
 import userEvent from '@testing-library/user-event';
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../../contexts/AuthProvider';
+// import React, { useContext } from 'react';
+// import { Link } from 'react-router-dom';
+// import { AuthContext } from '../../../../contexts/AuthProvider';
+
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
