@@ -1,16 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
-
   const { register, handleSubmit, formState: { errors } } = useForm();
-
   const { createUser, googleSignIn } = useContext(AuthContext);
-
   const [signUpError, setSignUPError] = useState('');
+
+  const navigate = useNavigate();
+
 
   const handleSignUp = (data) => {
     console.log('data', data);
@@ -21,7 +22,8 @@ const SignUp = () => {
       .then(result => {
         const user = result.user;
         console.log('user', user);
-        // toast('User Created Successfully.');
+        toast.success('User Created Successfully.');
+        navigate('/');
       })
       .catch(error => {
         console.log(error);

@@ -14,6 +14,7 @@ const Navbar = () => {
 
   const menuItems = <React.Fragment>
     <li><Link to="/">Home</Link></li>
+    <li><Link to="/appointment">Appointment</Link></li>
     {
       user?.uid ?
         <li><button onClick={handleLogOut}>Sign Out</button></li>
