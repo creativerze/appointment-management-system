@@ -11,8 +11,8 @@ const BookingModal = ({ meting, selectedDate, setMeting }) => {
 
   const handleBooking = event => {
     event.preventDefault();
-    const form = event.target;
-    toast.success('Booking Confirmed');
+    // const form = event.target;
+    toast.success('Appointment Successful');
     setMeting(null);
   };
 
